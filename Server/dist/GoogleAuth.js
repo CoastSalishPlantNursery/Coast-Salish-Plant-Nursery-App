@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createTokenAsync = createTokenAsync;
 const google_auth_library_1 = require("google-auth-library");
-const coast_salish_plant_nursery_app_7cc80564577b_json_1 = __importDefault(require("./coast-salish-plant-nursery-app-7cc80564577b.json"));
+const GoogleAuth_json_1 = __importDefault(require("./GoogleAuth.json"));
 const SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',
     'https://www.googleapis.com/auth/drive.file',
@@ -22,8 +22,8 @@ const SCOPES = [
 function createTokenAsync() {
     return __awaiter(this, void 0, void 0, function* () {
         const token = new google_auth_library_1.JWT({
-            email: coast_salish_plant_nursery_app_7cc80564577b_json_1.default.client_email,
-            key: coast_salish_plant_nursery_app_7cc80564577b_json_1.default.private_key,
+            email: GoogleAuth_json_1.default.client_email,
+            key: GoogleAuth_json_1.default.private_key,
             scopes: SCOPES,
         });
         return token;

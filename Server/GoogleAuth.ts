@@ -1,5 +1,5 @@
 import { JWT } from "google-auth-library";
-import creds from "./coast-salish-plant-nursery-app-7cc80564577b.json";
+import creds from "./GoogleAuth.json";
 
 const SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',

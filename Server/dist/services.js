@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPlantsAsync = getPlantsAsync;
 exports.getFilteredPlantsAsync = getFilteredPlantsAsync;
-const GoogleAuth_ts_1 = require("./GoogleAuth.ts");
+const GoogleAuth_1 = require("./GoogleAuth");
 const google_spreadsheet_1 = require("google-spreadsheet");
 function getPlantsAsync() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -19,7 +19,7 @@ function getPlantsAsync() {
         let plants = [];
         try {
             let i = 1;
-            const token = yield (0, GoogleAuth_ts_1.createTokenAsync)();
+            const token = yield (0, GoogleAuth_1.createTokenAsync)();
             const doc = new google_spreadsheet_1.GoogleSpreadsheet("1lr0Js5rcaaetcg6lEX37Yvf7F3NtTN2wfUm35AusReo", token);
             yield doc.loadInfo();
             const sheet = doc.sheetsByTitle["Plants"];
@@ -63,7 +63,7 @@ function getFilteredPlantsAsync(creteria) {
                 ((_c = creteria.Soil) === null || _c === void 0 ? void 0 : _c.includes(item.Soil)) &&
                 ((_d = creteria.Moisture) === null || _d === void 0 ? void 0 : _d.includes(item.Moisture)) &&
                 ((_e = creteria.ContainerTolerance) === null || _e === void 0 ? void 0 : _e.includes(item.ContainerTolerance)) &&
-                arrayEntryInText(creteria.Attracts, item.Attracts, ", ");
+                arrayEntryInText(creteria.Attracts, item.Attracts.toString(), ", ");
         });
         return filteredPlants;
     });
@@ -71,7 +71,7 @@ function getFilteredPlantsAsync(creteria) {
 function arrayEntryInText(array, text, seperator) {
     let result = false;
     const arrEntries = text.split(seperator);
-    array.every(element => {
+    array === null || array === void 0 ? void 0 : array.every(element => {
         if (arrEntries.includes(element)) {
             result = true;
             return false;

@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "coast-salish-plant-nursery-app",
+    "private_key_id": "7cc80564577b10c2ff3e98cdbbc308d75ea300ef",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCq7EVgPwJpWJ2u\nZ6JSLkcEPSh3D/hD2DpAu5pqMYbRO6X+J2kttAMZJ37WZYFYbNEQYPm1OjZVhZyJ\nC3jEv4w/1s2LxtjctDgi6XxQvkJA3KoGJKM+XzFEzxp0FVpjQuGLoJBIDXFE06o5\n5skxrnIfOuwuTTPeE2UoLKrjsWumGvzvF86bb/nrbDpQLQYKD6EsQAMrp/QT6Hlc\naqLJsfJ7HViWxVH+SbNdHMjwHA2z/EdKlw/p3355Flmyb0oViBXv70md2Hp8uibc\nmeK1TlRhj3sHIsaJJ8Zdnn+5LgthalnP2vmOCqkqBgdQnTt+gRnnfMTdq8ft4NJ7\nxetXrNOVAgMBAAECggEACDA+i9BcKYQNAp+rZDWCwhGHmg1u6IBegt7NLhyf57xs\nUbAKQ9Eo1T0rprjN/AvM7kE/GHwPKB5SpzKGzCI2S8UOK6dqMnsENd2RG5f2oGXe\nui5qKOEYzduZwFYl8oIJpsDmXwiDbl39/Na+H8rkMI1uZpkQDMN86D8cYFrBHGZN\nX/LpcLbdvnk3/0ERL2YQVoMPXnf9Eb4HR0h7/hMPVEPWNYA6F0uH+AO6U19NvsBh\n4VeskkZJFHnj5FCP6Z1taRniQhSgSQsuVxnmhkrPb40IQ4//ycjwxsmme1foBQUx\nBmaQNRHJWAmlsGfx/iIiDazG0x07GnKRRbZDAbZ7cQKBgQDuz3fpWHlzo54aO9uo\nR2lKUqgTbfPWnULeesWgB1AvzcYowa26qnHryx7FIYMfFvy3at6LHCfeRz8SqnYt\n4bEMpKR4tiw0NVT912YJmStxrcdY8GnITRCbrq6k1gbL9dOKn0NsRn0jYzrKCWRc\nsNCwre9Fjq/ofQiEtinJmIFBTQKBgQC3OdkJhMluHB74mgQdi4bx2k2TqNmaOmAV\n2HmJm47f0PNISDf8eMCs0pXwPxUq8hyo51DHX8bs+w8bq27WozDpb3ybAyTUNjwG\nwpmpGhIP8zQT+77HLr+wfZKUbqOBECc5FwoX+GfooR3bqqUYAMcajLWUpbnZ8FiK\n7yAfG2e3aQKBgQCEXz3he2g+4DfX5MwaGBNV3kFKG81obd1OAxGeZc9d4BryJoFN\nEgN5pyqULMJIrm5AoR1gUKgMvsNIbnJ5dju0fWKpgpk4C0PkPMxTj7KUHbZ9Jy4L\nmCQXl5k4x2YXEllC4or17pCY1/0TVmdqNZxIAvG5RaFeJkhdf7fkBgPHlQKBgQCr\nQd6jDwJXcOFh7FM8alXPaQRpp8D8buOwh43SGRwKBvvd6+KokRVGc+7Bh7T5VyOC\nm/Lc56C/kEomyq3m4NGu3w3QtbeOwsKIbwvBCyUm02Mx6nP/KKrzA+wl4OPiln6S\n1f4ROZWl0jJeR7nYHaH8Jtjx/5UfJ48bDTcw3CStQQKBgQCTpELHgipOqdAOVqU0\nAqbB3fMiUFHtpuUTWOuq4TlPCEslucnmOPs+JZh+ICPtR8pvEQPct8qQjL590h0v\nC4L/E5RF53eWmIy53UV8pFcLMOJBlYrM20R1g3e94+MRAaXMf2T5fma2kjYXYpF9\n4yGGadCiS2Nd349EOBaP+UdvSw==\n-----END PRIVATE KEY-----\n",
+    "client_email": "coastsalishplantnursery@coast-salish-plant-nursery-app.iam.gserviceaccount.com",
+    "client_id": "112504129661395276109",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/coastsalishplantnursery%40coast-salish-plant-nursery-app.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+}

@@ -1,9 +1,9 @@
 import { JWT } from "google-auth-library";
-import {createTokenAsync} from "./GoogleAuth.ts";
+import {createTokenAsync} from "./GoogleAuth";
 import { GoogleSpreadsheet, GoogleSpreadsheetWorksheet } from "google-spreadsheet";
-import { Plant } from "./Types/Plant.ts";
-import { ContainerTolerance, Exposure, Moisture, PlantType, Soil } from "./Enums/Enums.ts";
-import { Criteria } from "./Types/Criteria.ts";
+import { Plant } from "./Types/Plant";
+import { ContainerTolerance, Exposure, Moisture, PlantType, Soil } from "./Enums/Enums";
+import { Criteria } from "./Types/Criteria";
 
 export async function getPlantsAsync(): Promise<Plant[]> {
     let plants: Array<Plant> = [];
@@ -52,17 +52,17 @@ export async function getFilteredPlantsAsync(creteria: Criteria) {
                 creteria.Soil?.includes(item.Soil) &&
                 creteria.Moisture?.includes(item.Moisture) &&
                 creteria.ContainerTolerance?.includes(item.ContainerTolerance) &&
-                arrayEntryInText(creteria.Attracts, item.Attracts, ", ")
+                arrayEntryInText(creteria.Attracts, item.Attracts.toString(), ", ")
     })
     return filteredPlants;
 }
 
 
 
-function arrayEntryInText(array, text, seperator) {
+function arrayEntryInText(array: any[] | undefined, text: string, seperator: string) {
     let result = false;
     const arrEntries = text.split(seperator);
-    array.every(element => {
+    array?.every(element => {
         if (arrEntries.includes(element)) {
             result = true;
             return false;

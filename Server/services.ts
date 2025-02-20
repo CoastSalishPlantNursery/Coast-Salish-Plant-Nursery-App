@@ -1,9 +1,9 @@
 import { JWT } from "google-auth-library";
 import {createTokenAsync} from "./GoogleAuth.ts";
 import { GoogleSpreadsheet, GoogleSpreadsheetWorksheet } from "google-spreadsheet";
-import { Plant } from "./Plant";
-import { ContainerTolerance, Exposure, Moisture, PlantType, Soil } from "./Enums";
-import { Criteria } from "./Criteria";
+import { Plant } from "./Types/Plant.ts";
+import { ContainerTolerance, Exposure, Moisture, PlantType, Soil } from "./Enums/Enums.ts";
+import { Criteria } from "./Types/Criteria.ts";
 
 export async function getPlantsAsync(): Promise<Plant[]> {
     let plants: Array<Plant> = [];

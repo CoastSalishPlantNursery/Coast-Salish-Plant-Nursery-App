@@ -14,7 +14,6 @@ app.get("/api", async (req, res) => {
     const plants = await getPlantsAsync();
 
     
-    Array
     if (plants.length != 0) {
         res.setHeader("content-type", "application/json");
         res.status(200).send(JSON.stringify(plants));

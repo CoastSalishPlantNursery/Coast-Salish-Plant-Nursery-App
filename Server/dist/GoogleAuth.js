@@ -14,7 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createTokenAsync = createTokenAsync;
 const google_auth_library_1 = require("google-auth-library");
-const GoogleAuth_json_1 = __importDefault(require("./GoogleAuth.json"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',
     'https://www.googleapis.com/auth/drive.file',
@@ -22,8 +23,8 @@ const SCOPES = [
 function createTokenAsync() {
     return __awaiter(this, void 0, void 0, function* () {
         const token = new google_auth_library_1.JWT({
-            email: GoogleAuth_json_1.default.client_email,
-            key: GoogleAuth_json_1.default.private_key,
+            email: process.env.CLIENT_EMAIL,
+            key: process.env.API_KEY,
             scopes: SCOPES,
         });
         return token;

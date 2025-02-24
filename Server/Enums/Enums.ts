@@ -1,48 +1,48 @@
 export enum PlantType {
-    "Annual",
-    "Fern",
-    "Grass",
-    "Perennial",
-    "Shrub",
-    "Tree"
+    "Annual" = "Annual",
+    "Fern" = "Fern",
+    "Grass" = "Grass",
+    "Perennial" = "Perennial",
+    "Shrub" = "Shrub",
+    "Tree" = "Tree"
 }
 
 export enum Exposure {
-    "Part Shade",
-    "Part Shade - Shade",
-    "Sun",
-    "Sun - Part Shade",
-    "Sun - Shade"
+    "Part Shade" = "Part Shade",
+    "Part Shade - Shade" = "Part Shade - Shade",
+    "Sun" = "Sun",
+    "Sun - Part Shade" = "Sun - Part Shade",
+    "Sun - Shade" = "Sun - Shade"
 }
 
 export enum Soil {
-    "Light (Sandy) - Heavy (Clay)",
-    "Light (Sandy) - Heavy (Clay) / Well-drained",
-    "Light (Sandy) - Medium (Loamy)",
-    "Light (Sandy) - Medium (Loamy) / Well-drained",
-    "Medium (Loamy) - Heavy (Clay)"
+    "Light (Sandy) - Heavy (Clay)" = "Light (Sandy) - Heavy (Clay)",
+    "Light (Sandy) - Heavy (Clay) / Well-drained" = "Light (Sandy) - Heavy (Clay) / Well-drained",
+    "Light (Sandy) - Medium (Loamy)" = "Light (Sandy) - Medium (Loamy)",
+    "Light (Sandy) - Medium (Loamy) / Well-drained" = "Light (Sandy) - Medium (Loamy) / Well-drained",
+    "Medium (Loamy) - Heavy (Clay)" = "Medium (Loamy) - Heavy (Clay)"
 }
 
 export enum Moisture {
-    "Dry",
-    "Dry - Moist",
-    "Dry - Wet",
-    "Moist",
-    "Moist - Dry",
-    "Moist - Wet",
-    "Wet"
+    "Dry" = "Dry",
+    "Dry - Moist" = "Dry - Moist",
+    "Dry - Wet" = "Dry - Wet",
+    "Moist" = "Moist",
+    "Moist - Dry" = "Moist - Dry",
+    "Moist - Wet" = "Moist - Wet",
+    "Wet" = "Wet"
 }
 
 export enum ContainerTolerance {
-    "High",
-    "Low",
-    "Medium",
-    "Moderate"
+    "High" = "High",
+    "Low" = "Low",
+    "Medium" = "Medium",
+    "Moderate" = "Moderate"
 }
 
 export enum Attracts {
-    "Bees and Butterflies",
-    "Birds",
-    "Hummingbirds"
+    "Bees and Butterflies" = "Bees and Butterflies",
+    "Birds" = "Birds",
+    "Hummingbirds" = "Hummingbirds"
 }
 

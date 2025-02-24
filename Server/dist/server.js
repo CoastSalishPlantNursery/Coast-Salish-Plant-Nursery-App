@@ -32,9 +32,16 @@ app.get("/api", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 }));
 app.get("/test", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const plants = yield (0, services_1.getFilteredPlantsAsync)({
-        PlantType: [Enums_1.PlantType.Annual, Enums_1.PlantType.Fern],
+        PlantType: [Enums_1.PlantType.Annual, Enums_1.PlantType.Tree],
+        Soil: [Enums_1.Soil["Medium (Loamy) - Heavy (Clay)"], Enums_1.Soil["Light (Sandy) - Heavy (Clay) / Well-drained"]],
+        Exposure: [Enums_1.Exposure["Part Shade - Shade"], Enums_1.Exposure["Sun - Part Shade"], Enums_1.Exposure.Sun],
+        Moisture: [Enums_1.Moisture["Dry - Moist"], Enums_1.Moisture.Moist, Enums_1.Moisture["Dry - Wet"], Enums_1.Moisture.Dry],
+        ContainerTolerance: [Enums_1.ContainerTolerance.High, Enums_1.ContainerTolerance.Medium, Enums_1.ContainerTolerance.Low],
+        Attracts: [Enums_1.Attracts["Bees and Butterflies"]],
+        Edible: "yes",
     });
     if (plants.length != 0) {
+        console.log(req.body);
         res.setHeader("content-type", "application/json");
         res.status(200).send(JSON.stringify(plants));
     }

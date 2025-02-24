@@ -46,8 +46,10 @@ finally {return plants}
 
 export async function getFilteredPlantsAsync(creteria: Criteria) {
     let plants = await getPlantsAsync();
+    console.log(creteria);
     let filteredPlants = plants.filter(item => {
-        return creteria.PlantType?.includes(item.PlantType) && 
+        return creteria.PlantType?.includes(item.PlantType) 
+        && 
                 creteria.Exposure?.includes(item.Exposure) &&
                 creteria.Soil?.includes(item.Soil) &&
                 creteria.Moisture?.includes(item.Moisture) &&
@@ -55,6 +57,7 @@ export async function getFilteredPlantsAsync(creteria: Criteria) {
                 arrayEntryInText(creteria.Attracts, item.Attracts.toString(), ", ")
     })
     return filteredPlants;
+    return plants;
 }
 
 

@@ -56,16 +56,19 @@ function getPlantsAsync() {
 function getFilteredPlantsAsync(creteria) {
     return __awaiter(this, void 0, void 0, function* () {
         let plants = yield getPlantsAsync();
+        console.log(creteria);
         let filteredPlants = plants.filter(item => {
             var _a, _b, _c, _d, _e;
-            return ((_a = creteria.PlantType) === null || _a === void 0 ? void 0 : _a.includes(item.PlantType)) &&
-                ((_b = creteria.Exposure) === null || _b === void 0 ? void 0 : _b.includes(item.Exposure)) &&
+            return ((_a = creteria.PlantType) === null || _a === void 0 ? void 0 : _a.includes(item.PlantType))
+                &&
+                    ((_b = creteria.Exposure) === null || _b === void 0 ? void 0 : _b.includes(item.Exposure)) &&
                 ((_c = creteria.Soil) === null || _c === void 0 ? void 0 : _c.includes(item.Soil)) &&
                 ((_d = creteria.Moisture) === null || _d === void 0 ? void 0 : _d.includes(item.Moisture)) &&
                 ((_e = creteria.ContainerTolerance) === null || _e === void 0 ? void 0 : _e.includes(item.ContainerTolerance)) &&
                 arrayEntryInText(creteria.Attracts, item.Attracts.toString(), ", ");
         });
         return filteredPlants;
+        return plants;
     });
 }
 function arrayEntryInText(array, text, seperator) {

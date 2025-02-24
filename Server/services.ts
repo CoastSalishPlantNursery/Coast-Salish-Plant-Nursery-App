@@ -46,13 +46,14 @@ finally {return plants}
 export async function getFilteredPlantsAsync(creteria: Criteria) {
     let plants = await getPlantsAsync();
     let filteredPlants = plants.filter(item => {
-        return creteria.PlantType?.includes(item.PlantType) && 
-                creteria.Soil?.includes(item.Soil) &&
-                creteria.Exposure?.includes(item.Exposure) && 
-                creteria.Moisture?.includes(item.Moisture) &&
-                creteria.ContainerTolerance?.includes(item.ContainerTolerance) &&
-                arrayEntryInText(<Array<string>>creteria.Attracts, item.Attracts.toString()) == true
+        return (creteria.PlantType?.length == 0 ? true : (creteria.PlantType?.includes(item.PlantType) ? true : false)) && 
+                (creteria.Soil?.length == 0 ? true : (creteria.Soil?.includes(item.Soil) ? true : false) ) &&
+                (creteria.Exposure?.length == 0 ? true : (creteria.Exposure?.includes(item.Exposure) ? true : false)) && 
+                (creteria.Moisture?.length == 0 ? true : (creteria.Moisture?.includes(item.Moisture) ? true : false)) && 
+                (creteria.ContainerTolerance?.length == 0 ? true : (creteria.ContainerTolerance?.includes(item.ContainerTolerance) ? true : false)) &&
+                (creteria.Attracts?.length == 0 ? true : (arrayEntryInText(<Array<string>>creteria.Attracts, item.Attracts.toString()) == true ? true : false))    
     })
+    console.log(filteredPlants.length)
     return filteredPlants;
 }
 

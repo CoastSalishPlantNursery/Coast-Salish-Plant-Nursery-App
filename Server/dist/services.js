@@ -65,6 +65,7 @@ function getFilteredPlantsAsync(creteria) {
                 ((_g = creteria.ContainerTolerance) === null || _g === void 0 ? void 0 : _g.includes(item.ContainerTolerance)) &&
                 arrayEntryInText(creteria.Attracts, item.Attracts.toString()) == true;
         });
+        console.log(filteredPlants.length);
         return filteredPlants;
     });
 }

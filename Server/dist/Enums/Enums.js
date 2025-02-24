@@ -46,7 +46,7 @@ var ContainerTolerance;
 var Attracts;
 (function (Attracts) {
     Attracts["Bees"] = "Bees";
-    Attracts["Butterflies"] = " Butterflies";
+    Attracts["Butterflies"] = "Butterflies";
     Attracts["Birds"] = "Birds";
     Attracts["Hummingbirds"] = "Hummingbirds";
 })(Attracts || (exports.Attracts = Attracts = {}));

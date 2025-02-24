@@ -8,10 +8,10 @@ export enum PlantType {
 }
 
 export enum Exposure {
-    "Part Shade" = "Part Shade",
-    "Part Shade - Shade" = "Part Shade - Shade",
+    "Part shade" = "Part shade",
+    "Part shade - shade" = "Part shade - Shade",
     "Sun" = "Sun",
-    "Sun - Part Shade" = "Sun - Part Shade",
+    "Sun - Part shade" = "Sun - Part shade",
     "Sun - Shade" = "Sun - Shade"
 }
 

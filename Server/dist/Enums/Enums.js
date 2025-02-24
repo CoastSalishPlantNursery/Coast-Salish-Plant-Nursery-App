@@ -12,10 +12,10 @@ var PlantType;
 })(PlantType || (exports.PlantType = PlantType = {}));
 var Exposure;
 (function (Exposure) {
-    Exposure["Part Shade"] = "Part Shade";
-    Exposure["Part Shade - Shade"] = "Part Shade - Shade";
+    Exposure["Part shade"] = "Part shade";
+    Exposure["Part shade - shade"] = "Part shade - Shade";
     Exposure["Sun"] = "Sun";
-    Exposure["Sun - Part Shade"] = "Sun - Part Shade";
+    Exposure["Sun - Part shade"] = "Sun - Part shade";
     Exposure["Sun - Shade"] = "Sun - Shade";
 })(Exposure || (exports.Exposure = Exposure = {}));
 var Soil;

@@ -41,35 +41,30 @@ export async function getPlantsAsync(): Promise<Plant[]> {
     plants = [];
 }
 finally {return plants}
-
 }
 
 export async function getFilteredPlantsAsync(creteria: Criteria) {
     let plants = await getPlantsAsync();
-    console.log(creteria);
     let filteredPlants = plants.filter(item => {
-        return creteria.PlantType?.includes(item.PlantType) 
-        && 
-                creteria.Exposure?.includes(item.Exposure) &&
+        return creteria.PlantType?.includes(item.PlantType) && 
                 creteria.Soil?.includes(item.Soil) &&
+                creteria.Exposure?.includes(item.Exposure) && 
                 creteria.Moisture?.includes(item.Moisture) &&
                 creteria.ContainerTolerance?.includes(item.ContainerTolerance) &&
-                arrayEntryInText(creteria.Attracts, item.Attracts.toString(), ", ")
+                arrayEntryInText(<Array<string>>creteria.Attracts, item.Attracts.toString()) == true
     })
     return filteredPlants;
-    return plants;
 }
 
 
 
-function arrayEntryInText(array: any[] | undefined, text: string, seperator: string) {
+function arrayEntryInText(array: String[], text: string) {
     let result = false;
-    const arrEntries = text.split(seperator);
-    array?.every(element => {
-        if (arrEntries.includes(element)) {
+    let textToLowerCase = text.toLowerCase();
+    array.forEach(element => {
+        if (textToLowerCase.includes(element.toLowerCase())) {
             result = true;
-            return false;
-        } 
+        }
     });
     return result;
 }

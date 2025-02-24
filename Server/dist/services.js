@@ -56,28 +56,24 @@ function getPlantsAsync() {
 function getFilteredPlantsAsync(creteria) {
     return __awaiter(this, void 0, void 0, function* () {
         let plants = yield getPlantsAsync();
-        console.log(creteria);
         let filteredPlants = plants.filter(item => {
-            var _a, _b, _c, _d, _e;
-            return ((_a = creteria.PlantType) === null || _a === void 0 ? void 0 : _a.includes(item.PlantType))
-                &&
-                    ((_b = creteria.Exposure) === null || _b === void 0 ? void 0 : _b.includes(item.Exposure)) &&
-                ((_c = creteria.Soil) === null || _c === void 0 ? void 0 : _c.includes(item.Soil)) &&
-                ((_d = creteria.Moisture) === null || _d === void 0 ? void 0 : _d.includes(item.Moisture)) &&
-                ((_e = creteria.ContainerTolerance) === null || _e === void 0 ? void 0 : _e.includes(item.ContainerTolerance)) &&
-                arrayEntryInText(creteria.Attracts, item.Attracts.toString(), ", ");
+            var _a, _b, _c, _d, _e, _f, _g;
+            return (((_a = creteria.PlantType) === null || _a === void 0 ? void 0 : _a.length) == 0 ? true : (((_b = creteria.PlantType) === null || _b === void 0 ? void 0 : _b.includes(item.PlantType)) ? true : false)) &&
+                (((_c = creteria.Soil) === null || _c === void 0 ? void 0 : _c.length) == 0 ? true : (((_d = creteria.Soil) === null || _d === void 0 ? void 0 : _d.includes(item.Soil)) ? true : false)) &&
+                ((_e = creteria.Exposure) === null || _e === void 0 ? void 0 : _e.includes(item.Exposure)) &&
+                ((_f = creteria.Moisture) === null || _f === void 0 ? void 0 : _f.includes(item.Moisture)) &&
+                ((_g = creteria.ContainerTolerance) === null || _g === void 0 ? void 0 : _g.includes(item.ContainerTolerance)) &&
+                arrayEntryInText(creteria.Attracts, item.Attracts.toString()) == true;
         });
         return filteredPlants;
-        return plants;
     });
 }
-function arrayEntryInText(array, text, seperator) {
+function arrayEntryInText(array, text) {
     let result = false;
-    const arrEntries = text.split(seperator);
-    array === null || array === void 0 ? void 0 : array.every(element => {
-        if (arrEntries.includes(element)) {
+    let textToLowerCase = text.toLowerCase();
+    array.forEach(element => {
+        if (textToLowerCase.includes(element.toLowerCase())) {
             result = true;
-            return false;
         }
     });
     return result;

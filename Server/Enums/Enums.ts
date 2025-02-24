@@ -42,7 +42,7 @@ export enum ContainerTolerance {
 
 export enum Attracts {
     "Bees" = "Bees",
-    "Butterflies"= "Butterflies",
+    "Butterflies" = "Butterflies",
     "Birds" = "Birds",
     "Hummingbirds" = "Hummingbirds"
 }

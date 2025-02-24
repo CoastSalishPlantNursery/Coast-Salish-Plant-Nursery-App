@@ -26,10 +26,10 @@ app.get("/test", async (req, res) => {
     const plants = await getFilteredPlantsAsync({
         PlantType: [PlantType.Annual, PlantType.Tree],
         Soil: [Soil["Medium (Loamy) - Heavy (Clay)"], Soil["Light (Sandy) - Heavy (Clay) / Well-drained"]],
-        Exposure: [Exposure["Part Shade - Shade"], Exposure["Sun - Part Shade"], Exposure.Sun],
+        Exposure: [Exposure["Part shade - shade"], Exposure["Sun - Part shade"], Exposure.Sun],
         Moisture: [Moisture["Dry - Moist"], Moisture.Moist, Moisture["Dry - Wet"], Moisture.Dry],
         ContainerTolerance: [ContainerTolerance.High, ContainerTolerance.Medium, ContainerTolerance.Low],
-        Attracts: [Attracts["Bees and Butterflies"]],
+        Attracts: [Attracts.Bees, Attracts.Butterflies],
         Edible: "yes",
 
     });

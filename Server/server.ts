@@ -25,12 +25,14 @@ app
       res.setHeader("content-type", "application/json");
       res.status(200).send(JSON.stringify(plants));
     } else {
-      res.send(JSON.stringify({ Error: res.statusMessage })).sendStatus(500);
+      res
+        .status(res.statusCode)
+        .send(JSON.stringify({ Error: res.statusMessage }));
     }
   })
   .post(async (req, res) => {
     if (req.body === undefined) {
-      res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
+      res.status(res.statusCode).send(JSON.stringify(res.statusMessage));
     } else {
       const reqBody: Criteria = JSON.parse(JSON.stringify(req.body));
       const plants = await getFilteredPlantsAsync(reqBody);
@@ -39,7 +41,9 @@ app
         res.setHeader("content-type", "application/json");
         res.status(200).send(JSON.stringify(plants));
       } else {
-        res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
+        res
+          .status(res.statusCode)
+          .send(JSON.stringify({ Error: res.statusMessage }));
       }
     }
   });

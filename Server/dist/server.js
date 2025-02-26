@@ -27,12 +27,14 @@ app
         res.status(200).send(JSON.stringify(plants));
     }
     else {
-        res.send(JSON.stringify({ Error: res.statusMessage })).sendStatus(500);
+        res
+            .status(res.statusCode)
+            .send(JSON.stringify({ Error: res.statusMessage }));
     }
 }))
     .post((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (req.body === undefined) {
-        res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
+        res.status(res.statusCode).send(JSON.stringify(res.statusMessage));
     }
     else {
         const reqBody = JSON.parse(JSON.stringify(req.body));
@@ -43,7 +45,9 @@ app
             res.status(200).send(JSON.stringify(plants));
         }
         else {
-            res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
+            res
+                .status(res.statusCode)
+                .send(JSON.stringify({ Error: res.statusMessage }));
         }
     }
 }));

@@ -18,10 +18,9 @@ const cors_1 = __importDefault(require("cors"));
 const services_1 = require("./services");
 app.use((0, cors_1.default)({ origin: "*" }));
 app.use(express_1.default.json());
-app.listen(3000, () => {
-    console.log("App is running on port 3000");
-});
-app.get("/api", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app
+    .route("/api")
+    .get((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const plants = yield (0, services_1.getPlantsAsync)();
     if (plants.length != 0) {
         res.setHeader("content-type", "application/json");
@@ -30,8 +29,8 @@ app.get("/api", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     else {
         res.send(JSON.stringify({ Error: res.statusMessage })).sendStatus(500);
     }
-}));
-app.post("/test", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+}))
+    .post((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (req.body === undefined) {
         res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
     }
@@ -48,3 +47,6 @@ app.post("/test", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
     }
 }));
+app.listen(3000, () => {
+    console.log("App is running on port 3000");
+});

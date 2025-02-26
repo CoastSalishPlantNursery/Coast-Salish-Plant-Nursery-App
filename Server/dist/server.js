@@ -47,6 +47,28 @@ app
         }
     }
 }));
+app.route("/api/search").get((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const searchterm = req.query.term || "";
+    const plants = yield (0, services_1.getPlantsAsync)();
+    if (plants.length === 0) {
+        res
+            .status(res.statusCode)
+            .send(JSON.stringify({ Error: res.statusMessage }));
+    }
+    else {
+        const filteredPlants = plants.filter((plant) => {
+            const plantName = plant.PlantName === null ? "" : plant.PlantName.toLowerCase();
+            return plantName.includes(searchterm.toString().toLowerCase());
+        });
+        if (filteredPlants.length !== 0) {
+            res.setHeader("content-type", "application/json");
+            res.status(200).send(JSON.stringify(filteredPlants));
+        }
+        else {
+            res.status(200).send(JSON.stringify({ Error: "No results" }));
+        }
+    }
+}));
 app.listen(3000, () => {
     console.log("App is running on port 3000");
 });

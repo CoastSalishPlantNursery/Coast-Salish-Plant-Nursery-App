@@ -43,7 +43,28 @@ app
       }
     }
   });
+app.route("/api/search").get(async (req, res) => {
+  const searchterm = req.query.term || "";
+  const plants = await getPlantsAsync();
 
+  if (plants.length === 0) {
+    res
+      .status(res.statusCode)
+      .send(JSON.stringify({ Error: res.statusMessage }));
+  } else {
+    const filteredPlants = plants.filter((plant: Plant) => {
+      const plantName =
+        plant.PlantName === null ? "" : plant.PlantName.toLowerCase();
+      return plantName.includes(searchterm.toString().toLowerCase());
+    });
+    if (filteredPlants.length !== 0) {
+      res.setHeader("content-type", "application/json");
+      res.status(200).send(JSON.stringify(filteredPlants));
+    } else {
+      res.status(200).send(JSON.stringify({ Error: "No results" }));
+    }
+  }
+});
 app.listen(3000, () => {
   console.log("App is running on port 3000");
 });

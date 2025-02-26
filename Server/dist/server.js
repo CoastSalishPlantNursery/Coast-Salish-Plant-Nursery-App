@@ -28,18 +28,23 @@ app.get("/api", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(200).send(JSON.stringify(plants));
     }
     else {
-        res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
+        res.send(JSON.stringify({ Error: res.statusMessage })).sendStatus(500);
     }
 }));
 app.post("/test", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const reqBody = JSON.parse(JSON.stringify(req.body));
-    const plants = yield (0, services_1.getFilteredPlantsAsync)(reqBody);
-    if (plants.length != 0) {
-        console.log(req.body);
-        res.setHeader("content-type", "application/json");
-        res.status(200).send(JSON.stringify(plants));
+    if (req.body === undefined) {
+        res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
     }
     else {
-        res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
+        const reqBody = JSON.parse(JSON.stringify(req.body));
+        const plants = yield (0, services_1.getFilteredPlantsAsync)(reqBody);
+        if (plants.length != 0) {
+            console.log(req.body);
+            res.setHeader("content-type", "application/json");
+            res.status(200).send(JSON.stringify(plants));
+        }
+        else {
+            res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
+        }
     }
 }));

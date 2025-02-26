@@ -26,18 +26,22 @@ app.get("/api", async (req, res) => {
     res.setHeader("content-type", "application/json");
     res.status(200).send(JSON.stringify(plants));
   } else {
-    res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
+    res.send(JSON.stringify({ Error: res.statusMessage })).sendStatus(500);
   }
 });
 
 app.post("/test", async (req, res) => {
-  const reqBody: Criteria = JSON.parse(JSON.stringify(req.body));
-  const plants = await getFilteredPlantsAsync(reqBody);
-  if (plants.length != 0) {
-    console.log(req.body);
-    res.setHeader("content-type", "application/json");
-    res.status(200).send(JSON.stringify(plants));
-  } else {
+  if (req.body === undefined) {
     res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
+  } else {
+    const reqBody: Criteria = JSON.parse(JSON.stringify(req.body));
+    const plants = await getFilteredPlantsAsync(reqBody);
+    if (plants.length != 0) {
+      console.log(req.body);
+      res.setHeader("content-type", "application/json");
+      res.status(200).send(JSON.stringify(plants));
+    } else {
+      res.send(JSON.stringify({ Error: "Bad Request" })).sendStatus(400);
+    }
   }
 });

@@ -14,7 +14,7 @@ import {
 } from "./Enums/Enums";
 
 app.use(cors({ origin: "*" }));
-
+app.use(express.json());
 app.listen(3000, () => {
   console.log("App is running on port 3000");
 });
@@ -31,7 +31,8 @@ app.get("/api", async (req, res) => {
 });
 
 app.post("/test", async (req, res) => {
-  const plants = await getFilteredPlantsAsync(<Criteria>req.body);
+  const reqBody: Criteria = JSON.parse(JSON.stringify(req.body));
+  const plants = await getFilteredPlantsAsync(reqBody);
   if (plants.length != 0) {
     console.log(req.body);
     res.setHeader("content-type", "application/json");

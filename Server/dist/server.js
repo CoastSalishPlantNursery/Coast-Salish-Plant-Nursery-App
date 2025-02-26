@@ -17,6 +17,7 @@ const app = (0, express_1.default)();
 const cors_1 = __importDefault(require("cors"));
 const services_1 = require("./services");
 app.use((0, cors_1.default)({ origin: "*" }));
+app.use(express_1.default.json());
 app.listen(3000, () => {
     console.log("App is running on port 3000");
 });
@@ -31,7 +32,8 @@ app.get("/api", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 }));
 app.post("/test", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const plants = yield (0, services_1.getFilteredPlantsAsync)(req.body);
+    const reqBody = JSON.parse(JSON.stringify(req.body));
+    const plants = yield (0, services_1.getFilteredPlantsAsync)(reqBody);
     if (plants.length != 0) {
         console.log(req.body);
         res.setHeader("content-type", "application/json");

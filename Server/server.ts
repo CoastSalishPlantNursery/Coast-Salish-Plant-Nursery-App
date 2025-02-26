@@ -2,6 +2,7 @@ import express from "express";
 const app = express();
 import cors from "cors";
 import { getFilteredPlantsAsync, getPlantsAsync } from "./services";
+import { Criteria } from "./Types/Criteria";
 import { Plant } from "./Types/Plant";
 import {
   PlantType,
@@ -29,32 +30,8 @@ app.get("/api", async (req, res) => {
   }
 });
 
-app.get("/test", async (req, res) => {
-  const plants = await getFilteredPlantsAsync({
-    PlantType: [PlantType.Annual, PlantType.Tree],
-    Soil: [
-      Soil["Medium (Loamy) - Heavy (Clay)"],
-      Soil["Light (Sandy) - Heavy (Clay) / Well-drained"],
-    ],
-    Exposure: [
-      Exposure["Part shade - shade"],
-      Exposure["Sun - Part shade"],
-      Exposure.Sun,
-    ],
-    Moisture: [
-      Moisture["Dry - Moist"],
-      Moisture.Moist,
-      Moisture["Dry - Wet"],
-      Moisture.Dry,
-    ],
-    ContainerTolerance: [
-      ContainerTolerance.High,
-      ContainerTolerance.Medium,
-      ContainerTolerance.Low,
-    ],
-    Attracts: [Attracts.Bees, Attracts.Butterflies],
-    Edible: "yes",
-  });
+app.post("/test", async (req, res) => {
+  const plants = await getFilteredPlantsAsync(<Criteria>req.body);
   if (plants.length != 0) {
     console.log(req.body);
     res.setHeader("content-type", "application/json");

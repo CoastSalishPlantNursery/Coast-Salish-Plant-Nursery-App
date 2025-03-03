@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     justifyContent: "space-between",
-    marginBottom: 25,
+    marginBottom: 7,
   },
 
   image: {

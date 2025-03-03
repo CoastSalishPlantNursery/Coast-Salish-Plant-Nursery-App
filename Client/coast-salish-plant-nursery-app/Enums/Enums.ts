@@ -1,4 +1,4 @@
-export enum PlantType {
+enum PlantType {
   "Annual" = "Annual",
   "Fern" = "Fern",
   "Grass" = "Grass",
@@ -7,7 +7,7 @@ export enum PlantType {
   "Tree" = "Tree",
 }
 
-export enum Exposure {
+enum Exposure {
   "Part shade" = "Part shade",
   "Part shade - shade" = "Part shade - Shade",
   "Sun" = "Sun",
@@ -15,7 +15,7 @@ export enum Exposure {
   "Sun - Shade" = "Sun - Shade",
 }
 
-export enum Soil {
+enum Soil {
   "Light (Sandy) - Heavy (Clay)" = "Light (Sandy) - Heavy (Clay)",
   "Light (Sandy) - Heavy (Clay) / Well-drained" = "Light (Sandy) - Heavy (Clay) / Well-drained",
   "Light (Sandy) - Medium (Loamy)" = "Light (Sandy) - Medium (Loamy)",
@@ -23,7 +23,7 @@ export enum Soil {
   "Medium (Loamy) - Heavy (Clay)" = "Medium (Loamy) - Heavy (Clay)",
 }
 
-export enum Moisture {
+enum Moisture {
   "Dry" = "Dry",
   "Dry - Moist" = "Dry - Moist",
   "Dry - Wet" = "Dry - Wet",
@@ -33,25 +33,18 @@ export enum Moisture {
   "Wet" = "Wet",
 }
 
-export enum ContainerTolerance {
+enum ContainerTolerance {
   "High" = "High",
   "Low" = "Low",
   "Medium" = "Medium",
   "Moderate" = "Moderate",
 }
 
-export enum Attracts {
+enum Attracts {
   "Bees" = "Bees",
   "Butterflies" = "Butterflies",
   "Birds" = "Birds",
   "Hummingbirds" = "Hummingbirds",
 }
 
-export default {
-  PlantType,
-  Exposure,
-  Soil,
-  Moisture,
-  ContainerTolerance,
-  Attracts,
-};
+export { PlantType, Exposure, Soil, Moisture, ContainerTolerance, Attracts };

@@ -3,14 +3,20 @@ import { View, Text, TouchableWithoutFeedback, StyleSheet } from "react-native";
 
 type CheckButtonProps = {
   title: string;
-  checked: () => void;
+  checked: (isChecked: boolean) => void;
 };
 
 export default function Checkbutton(props: CheckButtonProps) {
+  const { title, checked } = props;
   const [isChecked, setIsChecked] = useState(false);
   return (
     <>
-      <TouchableWithoutFeedback onPress={() => setIsChecked(!isChecked)}>
+      <TouchableWithoutFeedback
+        onPress={() => {
+          setIsChecked(!isChecked);
+          checked(isChecked);
+        }}
+      >
         <View
           style={[
             styles.container,

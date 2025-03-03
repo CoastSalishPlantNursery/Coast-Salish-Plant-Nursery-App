@@ -46,3 +46,12 @@ export enum Attracts {
   "Birds" = "Birds",
   "Hummingbirds" = "Hummingbirds",
 }
+
+export default {
+  PlantType,
+  Exposure,
+  Soil,
+  Moisture,
+  ContainerTolerance,
+  Attracts,
+};

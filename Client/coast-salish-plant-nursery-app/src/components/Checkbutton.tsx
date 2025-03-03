@@ -28,8 +28,13 @@ export default function Checkbutton(props: CheckButtonProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: 110,
+    width: "auto",
     height: 34,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 7,
+    paddingBottom: 7,
+    marginBottom: 10,
     borderRadius: 30,
     display: "flex",
     justifyContent: "center",

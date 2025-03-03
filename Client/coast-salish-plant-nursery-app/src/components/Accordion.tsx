@@ -18,21 +18,15 @@ export default function Accordion(props: AccordionProps) {
 
   return (
     <View>
-      <View>
-        <TouchableWithoutFeedback onPress={() => setIsCollapsed(!isCollapsed)}>
-          <View style={styles.flexContainer}>
-            <View>
-              <Text style={styles.text}>{props.title}</Text>
-            </View>
-            <View>
-              <Image
-                source={!isCollapsed ? arrowup : arrowdown}
-                style={styles.image}
-              />
-            </View>
-          </View>
-        </TouchableWithoutFeedback>
-      </View>
+      <TouchableWithoutFeedback onPress={() => setIsCollapsed(!isCollapsed)}>
+        <View style={styles.flexContainer}>
+          <Text style={styles.text}>{props.title}</Text>
+          <Image
+            source={!isCollapsed ? arrowup : arrowdown}
+            style={styles.image}
+          />
+        </View>
+      </TouchableWithoutFeedback>
 
       <View>{!isCollapsed && props.children}</View>
     </View>
@@ -40,10 +34,6 @@ export default function Accordion(props: AccordionProps) {
 }
 
 const styles = StyleSheet.create({
-  accordion: {
-    backgroundColor: "blue",
-  },
-
   flexContainer: {
     width: "100%",
     height: 50,
@@ -51,10 +41,11 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     borderRadius: 5,
     backgroundColor: "lightgrey",
+    flexDirection: "row",
+    alignItems: "center",
     display: "flex",
     justifyContent: "space-between",
-    flexDirection: "row",
-    alignItems: "stretch",
+    marginBottom: 25,
   },
 
   image: {

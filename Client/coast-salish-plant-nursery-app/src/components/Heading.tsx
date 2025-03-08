@@ -1,6 +1,7 @@
 import React from "react";
 import { SafeAreaView, StatusBar, Platform, Text, View } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
+
 export enum TextStyle {
   regular = "regular",
   bold = "bold",

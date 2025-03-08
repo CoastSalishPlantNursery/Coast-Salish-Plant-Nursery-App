@@ -8,27 +8,30 @@ import {
 import React, { useState } from "react";
 const arrowdown = require("../images/arrow-down.png");
 const arrowup = require("../images/arrow-up.png");
+
 type AccordionProps = {
   title: string;
   children: React.JSX.Element;
+  isItemCollapsed: boolean;
+  onPress: () => void;
 };
 
 export default function Accordion(props: AccordionProps) {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const { title, children, isItemCollapsed, onPress } = props;
 
   return (
     <View>
-      <TouchableWithoutFeedback onPress={() => setIsCollapsed(!isCollapsed)}>
+      <TouchableWithoutFeedback onPress={onPress}>
         <View style={styles.flexContainer}>
           <Text style={styles.text}>{props.title}</Text>
           <Image
-            source={!isCollapsed ? arrowup : arrowdown}
+            source={!isItemCollapsed ? arrowup : arrowdown}
             style={styles.image}
           />
         </View>
       </TouchableWithoutFeedback>
 
-      <View>{!isCollapsed && props.children}</View>
+      <View>{!isItemCollapsed && props.children}</View>
     </View>
   );
 }

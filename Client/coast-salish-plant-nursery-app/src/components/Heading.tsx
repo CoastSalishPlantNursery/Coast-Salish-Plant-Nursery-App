@@ -18,6 +18,7 @@ type HeadingProps = {
   text: string;
   heading: HeadingSize;
   style: TextStyle;
+  centered?: boolean;
 };
 
 export default function Heading(props: HeadingProps) {
@@ -26,7 +27,11 @@ export default function Heading(props: HeadingProps) {
       <Text
         style={[
           globalStyles.fontFamily,
-          globalStyles.centeredText,
+          props.centered == null
+            ? globalStyles.centeredText
+            : props.centered
+            ? globalStyles.centeredText
+            : globalStyles.leftText,
           { fontSize: props.heading, fontWeight: props.style },
         ]}
       >

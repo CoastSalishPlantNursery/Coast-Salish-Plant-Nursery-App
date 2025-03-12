@@ -16,6 +16,6 @@ export type Plant = {
   Moisture: Moisture;
   ContainerTolerance: ContainerTolerance;
   Attracts: Array<string> | string;
-  Summary: String;
+  Summary: string;
   Tags: Array<string> | string;
 };

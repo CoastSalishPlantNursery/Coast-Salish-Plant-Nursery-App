@@ -8,16 +8,19 @@ import {
   Button,
   TouchableWithoutFeedback,
 } from "react-native";
+import SearchBarDropDownItem from "./SearchBarDropDownItem";
 type SearchBarProps = {
   text: string;
   value: string;
   dropDownList: Array<string>;
   onDropDownClick: (item: string) => void;
   onChange: (value: string) => void;
+  onClick: () => void;
 };
 
 export default function SearchBar(props: SearchBarProps) {
-  const { text, value, dropDownList, onDropDownClick, onChange } = props;
+  const { text, value, dropDownList, onDropDownClick, onChange, onClick } =
+    props;
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [dropDownItems, setDropDownItems] = useState<string[]>([]);
 
@@ -42,16 +45,16 @@ export default function SearchBar(props: SearchBarProps) {
           placeholder="e.g. Salmonberry, Huckelberry"
           style={styles.searchbar}
         />
-        <Button title="Search" onPress={() => console.log("Search")} />
+        <Button title="Search" onPress={onClick} />
       </View>
       {dropdown == true && (
         <ScrollView style={styles.dropdown}>
           {dropDownItems.map((item) => (
-            <TouchableWithoutFeedback onPress={() => onDropDownClick(item)}>
-              <View key={item} style={styles.dropdownItem}>
-                <Text>{item}</Text>
-              </View>
-            </TouchableWithoutFeedback>
+            <SearchBarDropDownItem
+              key={item}
+              item={item}
+              onClick={() => onDropDownClick(item)}
+            />
           ))}
         </ScrollView>
       )}
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
   },
   dropdown: {
     width: "100%",
-    minWidth: 30,
+    minWidth: 50,
     maxHeight: 300,
     display: "flex",
     flexDirection: "column",
@@ -93,11 +96,11 @@ const styles = StyleSheet.create({
 
   dropdownItem: {
     width: "100%",
-    height: 30,
+    height: 50,
     paddingLeft: 5,
     display: "flex",
     justifyContent: "center",
-    borderBottomWidth: 1,
-    borderBottomColor: "black",
+    borderBottomWidth: 0.5,
+    borderBottomColor: "lightgrey",
   },
 });

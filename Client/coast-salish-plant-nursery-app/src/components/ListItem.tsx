@@ -1,16 +1,19 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableWithoutFeedback } from "react-native";
 
 type ListItemProps = {
   PlantName: string;
+  onClick: () => void;
 };
 
 export default function ListItem(props: ListItemProps) {
-  const { PlantName } = props;
+  const { PlantName, onClick } = props;
   return (
-    <View style={styles.item}>
-      <Text>{PlantName}</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={onClick}>
+      <View style={styles.item}>
+        <Text>{PlantName}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -22,6 +25,9 @@ const styles = StyleSheet.create({
     height: 42,
     paddingLeft: 20,
     marginBottom: 10,
-    backgroundColor: "#f9c2ff",
+    backgroundColor: "lightgrey",
+    opacity: 0.6,
+
+    borderRadius: 5,
   },
 });

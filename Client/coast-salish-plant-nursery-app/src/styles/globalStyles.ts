@@ -8,4 +8,14 @@ export const globalStyles = StyleSheet.create({
   centeredText: {
     textAlign: "center",
   },
+
+  leftText: {
+    textAlign: "left",
+  },
+
+  margin: {
+    marginTop: 10,
+    marginLeft: 23,
+    marginRight: 23,
+  },
 });

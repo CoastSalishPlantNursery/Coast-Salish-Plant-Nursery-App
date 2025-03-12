@@ -5,7 +5,9 @@ async function getAllPlants() {
   let error: string | null = null;
   let data: Plant[] = [];
   try {
-    const res = await fetch("http://192.168.68.52:3000/api");
+    const res = await fetch(
+      "https://coast-salish-plant-nursery-app.vercel.app/api"
+    );
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
@@ -20,13 +22,16 @@ async function getPlantsByCriteria(criteria: Criteria) {
   let error: string | null = null;
   let data: Plant[] = [];
   try {
-    const res = await fetch("http://192.168.68.52:3000/api", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(criteria),
-    });
+    const res = await fetch(
+      "https://coast-salish-plant-nursery-app.vercel.app/api",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(criteria),
+      }
+    );
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
     }

@@ -3,11 +3,12 @@ import { View, Text, TouchableWithoutFeedback, StyleSheet } from "react-native";
 
 type CheckButtonProps = {
   title: string;
+  inList: boolean;
   checked: (isChecked: boolean) => void;
 };
 
 export default function Checkbutton(props: CheckButtonProps) {
-  const { title, checked } = props;
+  const { title, checked, inList } = props;
   const [isChecked, setIsChecked] = useState(false);
   return (
     <>
@@ -20,11 +21,13 @@ export default function Checkbutton(props: CheckButtonProps) {
         <View
           style={[
             styles.container,
-            isChecked ? styles.greenContainer : styles.blackContainer,
+            isChecked || inList ? styles.greenContainer : styles.blackContainer,
           ]}
         >
-          <Text style={[isChecked ? styles.greenFont : styles.blackFont]}>
-            {props.title}
+          <Text
+            style={[isChecked || inList ? styles.greenFont : styles.blackFont]}
+          >
+            {title}
           </Text>
         </View>
       </TouchableWithoutFeedback>

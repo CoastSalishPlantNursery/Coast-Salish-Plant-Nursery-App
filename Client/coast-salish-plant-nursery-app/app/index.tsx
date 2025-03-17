@@ -85,13 +85,6 @@ export default function index(this: any, {}: Props) {
     fetchPlants();
   }, []);
 
-  // useEffect(() => {
-  //   console.log(plants);
-  //   const filteredItems = plants.filter((item) =>
-  //     item.PlantName.toLowerCase().includes(searchBarValue.toLowerCase())
-  //   );
-  // }, [searchBarValue]);
-
   return (
     <>
       {!isLoading ? (
@@ -118,7 +111,7 @@ export default function index(this: any, {}: Props) {
               onClick={() =>
                 router.push({
                   pathname: "/tabs/PlantList",
-                  params: { searchBarValue },
+                  params: { searchBarValue: searchBarValue },
                 })
               }
             />

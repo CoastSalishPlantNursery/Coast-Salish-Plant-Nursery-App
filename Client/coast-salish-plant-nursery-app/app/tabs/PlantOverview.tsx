@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Linking, StyleSheet, Text, View } from "react-native";
 import { globalStyles } from "../../src/styles/globalStyles";
 import BackButton from "../../src/components/BackButton";
@@ -6,12 +6,14 @@ import { Plant } from "../../Types/Plant";
 import { router, useLocalSearchParams } from "expo-router";
 import Heading, { HeadingSize, TextStyle } from "../../src/components/Heading";
 import RoundedButton from "../../src/components/RoundedButton";
+import InformationSlider from "../../src/components/InformationSlider";
 
 type Props = {};
 
 export default function PlantOverview({}: Props) {
-  const { PlantName, LatinName, Summary } =
-    useLocalSearchParams() as unknown as Plant;
+  const plant = useLocalSearchParams() as unknown as Plant;
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
   return (
     <>
       <View style={globalStyles.margin}>
@@ -20,13 +22,13 @@ export default function PlantOverview({}: Props) {
         </View>
         <View style={styles.sectionmargin}>
           <Heading
-            text={PlantName}
+            text={plant.PlantName}
             heading={HeadingSize.h1}
             style={TextStyle.bold}
             centered={false}
           />
           <Heading
-            text={LatinName}
+            text={plant.LatinName}
             heading={HeadingSize.h2}
             style={TextStyle.regular}
             centered={false}
@@ -40,16 +42,14 @@ export default function PlantOverview({}: Props) {
               style={TextStyle.bold}
             />
           </View>
-          <Text>{Summary}</Text>
+          <Text>{plant.Summary}</Text>
         </View>
         <View style={styles.searchButton}>
           <RoundedButton
             text={"More Information about the Plant"}
             button={"primary"}
             onClick={async () => {
-              await Linking.openURL(
-                `https://www.google.com/search?udm=2&q=${PlantName}`
-              );
+              setModalOpen(true);
             }}
           />
         </View>
@@ -59,11 +59,16 @@ export default function PlantOverview({}: Props) {
             button={"secondary"}
             onClick={async () => {
               await Linking.openURL(
-                `https://www.google.com/search?udm=2&q=${PlantName}`
+                `https://www.google.com/search?udm=2&q=${plant.PlantName}`
               );
             }}
           />
         </View>
+        <InformationSlider
+          isOpen={modalOpen}
+          plant={plant}
+          onChange={() => setModalOpen(!modalOpen)}
+        />
       </View>
     </>
   );

@@ -19,6 +19,7 @@ export default function CheckbuttonGroup(props: CheckButtonGroupProps) {
           <Checkbutton
             key={item}
             title={item}
+            inList={selectedItems.includes(item) ? true : false}
             checked={(isChecked: boolean) => {
               isChecked ? removeSelectedItem(item) : addSelectedItem(item);
             }}

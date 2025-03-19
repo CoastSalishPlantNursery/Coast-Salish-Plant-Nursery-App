@@ -14,7 +14,6 @@ import BackButton from "./BackButton";
 import Heading, { HeadingSize, TextStyle } from "./Heading";
 import InformationItem from "./InformationItem";
 import { Plant } from "../../Types/Plant";
-const PlantName = require("../images/PlantName.png");
 
 type InformationSilderProps = {
   isOpen: boolean;

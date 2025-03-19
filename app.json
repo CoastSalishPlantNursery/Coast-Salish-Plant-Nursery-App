@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "0e10c85c-a82a-4326-92bd-072d2a3ae45c"
+      }
+    },
+    "android": {
+      "package": "com.stan_wildbirdtrust.coastsalishplantnurseryapp"
+    }
+  }
+}

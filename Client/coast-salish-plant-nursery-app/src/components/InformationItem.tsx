@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
+import { globalStyles } from "../styles/globalStyles";
 
 type InformationItemProps = {
   heading: string;
@@ -11,7 +12,13 @@ export default function InformationItem(props: InformationItemProps) {
 
   return (
     <>
-      <View style={[styles.container, styles.flexContainer]}>
+      <View
+        style={[
+          styles.container,
+          globalStyles.primaryButtonColor,
+          styles.flexContainer,
+        ]}
+      >
         <View
           style={[
             styles.borderRight,
@@ -63,11 +70,13 @@ const styles = StyleSheet.create({
 
   text: {
     textAlign: "center",
+    color: "white",
     paddingLeft: 5,
   },
 
   heading: {
     fontSize: 16,
+    color: "white",
     fontWeight: "bold",
     textAlign: "center",
   },

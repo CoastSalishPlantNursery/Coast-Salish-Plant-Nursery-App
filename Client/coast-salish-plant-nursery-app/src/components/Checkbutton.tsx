@@ -51,7 +51,9 @@ const styles = StyleSheet.create({
   },
 
   greenContainer: {
-    borderColor: "green",
+    // backgroundColor: "#2B969D",
+    borderColor: "#2B969D",
+    //opacity: 0.5,
     borderWidth: 1,
     borderStyle: "solid",
   },
@@ -62,7 +64,8 @@ const styles = StyleSheet.create({
   },
 
   greenFont: {
-    color: "green",
+    color: "#2B969D",
+    fontWeight: "800",
   },
   blackFont: {
     color: "black",

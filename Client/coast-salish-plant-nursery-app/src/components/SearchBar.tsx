@@ -8,6 +8,7 @@ import {
   Button,
   TouchableWithoutFeedback,
 } from "react-native";
+import { globalStyles } from "../styles/globalStyles";
 import SearchBarDropDownItem from "./SearchBarDropDownItem";
 type SearchBarProps = {
   text: string;
@@ -34,7 +35,9 @@ export default function SearchBar(props: SearchBarProps) {
 
   return (
     <View>
-      <Text style={styles.heading}>{text}</Text>
+      {/* <Text style={[styles.heading, globalStyles.secondaryHeadingColor]}>
+        {text}
+      </Text> */}
       <View style={styles.flexContainer}>
         <TextInput
           value={value}
@@ -45,7 +48,12 @@ export default function SearchBar(props: SearchBarProps) {
           placeholder="e.g. Salmonberry, Huckelberry"
           style={styles.searchbar}
         />
-        <Button title="Search" onPress={onClick} />
+        {/* <Button title="Search" onPress={onClick} /> */}
+        <TouchableWithoutFeedback onPress={onClick}>
+          <View style={styles.button}>
+            <Text style={styles.text}>Search</Text>
+          </View>
+        </TouchableWithoutFeedback>
       </View>
       {dropdown == true && (
         <ScrollView style={styles.dropdown}>
@@ -76,6 +84,8 @@ const styles = StyleSheet.create({
     borderColor: "lightgrey",
     borderStyle: "solid",
     borderRadius: 5,
+    marginRight: 5,
+    paddingLeft: 10,
   },
 
   flexContainer: {
@@ -102,5 +112,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderBottomWidth: 0.5,
     borderBottomColor: "lightgrey",
+  },
+
+  button: {
+    width: 80,
+    height: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+    backgroundColor: "#53b363",
+
+    // borderWidth: 1,
+    // borderColor: "#057a51",
+  },
+
+  text: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
   },
 });

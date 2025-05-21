@@ -6,8 +6,9 @@ import {
   Image,
 } from "react-native";
 import React, { useState } from "react";
-const arrowdown = require("../images/arrow-down.png");
-const arrowup = require("../images/arrow-up.png");
+import { globalStyles } from "../styles/globalStyles";
+const arrowdown = require("../images/arrow-down_white.png");
+const arrowup = require("../images/arrow-up_white.png");
 
 type AccordionProps = {
   title: string;
@@ -22,7 +23,7 @@ export default function Accordion(props: AccordionProps) {
   return (
     <View>
       <TouchableWithoutFeedback onPress={onPress}>
-        <View style={styles.flexContainer}>
+        <View style={[styles.flexContainer, globalStyles.primaryButtonColor]}>
           <Text style={styles.text}>{props.title}</Text>
           <Image
             source={!isItemCollapsed ? arrowup : arrowdown}
@@ -58,5 +59,6 @@ const styles = StyleSheet.create({
 
   text: {
     fontSize: 18,
+    color: "white",
   },
 });

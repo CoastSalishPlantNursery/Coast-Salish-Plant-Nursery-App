@@ -1,4 +1,5 @@
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
+import { globalStyles } from "../styles/globalStyles";
 
 type CustomButtonProps = {
   title: string;
@@ -10,7 +11,7 @@ export default function CustomButton(props: CustomButtonProps) {
   return (
     <>
       <TouchableWithoutFeedback onPress={onPress}>
-        <View style={styles.button}>
+        <View style={[styles.button]}>
           <Text style={styles.text}>{title}</Text>
         </View>
       </TouchableWithoutFeedback>
@@ -23,13 +24,15 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "grey",
     width: 156,
     height: 48,
     borderRadius: 5,
+    borderWidth: 2,
+    borderColor: "#057a51",
   },
 
   text: {
-    color: "white",
+    color: "#057a51",
+    fontSize: 16,
   },
 });

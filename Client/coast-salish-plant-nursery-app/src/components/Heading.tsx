@@ -26,13 +26,20 @@ export default function Heading(props: HeadingProps) {
     <>
       <Text
         style={[
-          globalStyles.fontFamily,
+          props.heading == HeadingSize.h1
+            ? globalStyles.primaryHeadingColor
+            : props.heading == HeadingSize.h2
+            ? globalStyles.secondaryHeadingColor
+            : { color: "black" },
           props.centered == null
             ? globalStyles.centeredText
             : props.centered
             ? globalStyles.centeredText
             : globalStyles.leftText,
-          { fontSize: props.heading, fontWeight: props.style },
+          {
+            fontSize: props.heading,
+            fontWeight: props.style,
+          },
         ]}
       >
         {props.text}

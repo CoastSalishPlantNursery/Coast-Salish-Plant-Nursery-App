@@ -40,6 +40,7 @@ export default function PlantOverview({}: Props) {
               text={"About the Plant"}
               heading={HeadingSize.h3}
               style={TextStyle.bold}
+              centered={false}
             />
           </View>
           <Text>{plant.Summary}</Text>

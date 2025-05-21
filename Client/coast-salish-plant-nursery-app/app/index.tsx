@@ -8,11 +8,14 @@ import {
   ActivityIndicator,
   Button,
   Alert,
+  Image,
 } from "react-native";
+import { globalStyles } from "../src/styles/globalStyles";
 import Heading, { HeadingSize, TextStyle } from "../src/components/Heading";
 import Accordion from "../src/components/Accordion";
 import CheckbuttonGroup from "../src/components/CheckbuttonGroup";
 import CustomButton from "../src/components/Button";
+const logo = require("../src/images/Logo.png");
 import {
   PlantType,
   Exposure,
@@ -88,14 +91,19 @@ export default function index(this: any, {}: Props) {
   return (
     <>
       {!isLoading ? (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={globalStyles.margin}>
+          <View style={styles.imgContainer}>
+            <Image source={logo} style={styles.img} />
+          </View>
           <View style={styles.heading}>
             <Heading
               heading={HeadingSize.h2}
               style={TextStyle.bold}
               text="Plant Nursery App"
+              centered={true}
             />
           </View>
+
           <View style={styles.input}>
             <SearchBar
               text="Search Plant"
@@ -252,23 +260,25 @@ export default function index(this: any, {}: Props) {
                 : setColapsedItem("Attracts")
             }
           />
-          <CustomButton
-            title="Search"
-            onPress={async () => {
-              const criteria = {
-                PlantType: plantTypes,
-                Exposure: exposures,
-                Soil: soils,
-                Moisture: moistures,
-                ContainerTolerance: containerTolerances,
-                Attracts: attracts,
-              };
-              router.push({
-                pathname: "/tabs/PlantList",
-                params: { criteria: JSON.stringify(criteria) },
-              });
-            }}
-          />
+          <View style={styles.button}>
+            <CustomButton
+              title="Show Plants"
+              onPress={async () => {
+                const criteria = {
+                  PlantType: plantTypes,
+                  Exposure: exposures,
+                  Soil: soils,
+                  Moisture: moistures,
+                  ContainerTolerance: containerTolerances,
+                  Attracts: attracts,
+                };
+                router.push({
+                  pathname: "/tabs/PlantList",
+                  params: { criteria: JSON.stringify(criteria) },
+                });
+              }}
+            />
+          </View>
         </SafeAreaView>
       ) : (
         <SafeAreaView style={styles.containerIsLoading}>
@@ -295,9 +305,32 @@ const styles = StyleSheet.create({
   },
 
   heading: {
+    // alignItems: "center",
+    // width: "100%",
     marginBottom: 30,
   },
+
+  img: {
+    width: 125,
+    height: 125,
+  },
+
+  imgContainer: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    // display: "flex",
+    // alignItems: "center",
+    // backgroundColor: "#52B788",
+    // borderRadius: 15,
+    // opacity: 0.7,
+  },
+
   input: {
     marginBottom: 20,
+  },
+
+  button: {
+    marginTop: 5,
   },
 });

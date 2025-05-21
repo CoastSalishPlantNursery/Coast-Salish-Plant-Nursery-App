@@ -1,2 +1,5 @@
 # Coast-Salish-Plant-Nursery-App
-An App for the Wild Bird Trust of British Colombia
+
+A App which provides information about a plant based on the criteria provided.
+
+- includes a searchbar, where you can search for either a specific plant or

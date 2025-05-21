@@ -6,7 +6,7 @@ async function getAllPlants() {
   let data: Plant[] = [];
   try {
     const res = await fetch(
-      "https://coast-salish-plant-nursery-app.vercel.app/api"
+      "https://coast-salish-plant-nursery-app-beta.vercel.app/api"
     );
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
@@ -23,7 +23,7 @@ async function getPlantsByCriteria(criteria: Criteria) {
   let data: Plant[] = [];
   try {
     const res = await fetch(
-      "https://coast-salish-plant-nursery-app.vercel.app/api",
+      "https://coast-salish-plant-nursery-app-beta.vercel.app/api",
       {
         method: "POST",
         headers: {

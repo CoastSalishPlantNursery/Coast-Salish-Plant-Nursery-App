@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
+import { globalStyles } from "../styles/globalStyles";
 
 type RoundedButtonProps = {
   text: string;
@@ -16,14 +17,14 @@ export default function RoundedButton(props: RoundedButtonProps) {
           style={[
             styles.container,
             button == "primary"
-              ? styles.primaryBackgroundColor
-              : styles.secondaryBackgroundColor,
+              ? globalStyles.primaryButtonColor
+              : globalStyles.secondaryButtonColor,
           ]}
         >
           <Text
             style={[
               styles.text,
-              button == "primary" ? styles.primaryColor : styles.secondaryColor,
+              // button == "primary" ? styles.primaryColor : styles.secondaryColor,
             ]}
           >
             {text}
@@ -63,5 +64,9 @@ const styles = StyleSheet.create({
 
   secondaryColor: {
     color: "black",
+  },
+
+  secondaryButtonColor: {
+    backgroundColor: "#107194",
   },
 });

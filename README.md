@@ -37,6 +37,8 @@ To run the backend locally or on Vercel, you need a Google API Key to access the
 **Steps**
 
 1. Create a Google Cloud Project (https://console.cloud.google.com/)
+   - _Email:_ nursery@wildbirdtrust.org
+   - _Password:_ N@tivePl@ntsS@lmonberry
 2. Create a Service Account
    - APIs and services
    - Login Details
@@ -62,20 +64,45 @@ Returns the nursery dataset from the Google Spreadsheet.
 
 ## 🌍 Deployment (Vercel)
 
-1. Add new... (Project)
-2. Import Git Repository (Coast-Salish-Plant-Nursery-App)
-3. Set Project name
-4. Framework Preset _Other_
-5. Root Directory _Server_
-6. Add the Environment variables (.env)
-7. Deploy
+1. Login with GitHub Account
+   - _Email:_ nursery@wildbirdtrust.org
+   - _Password:_ PurpleMart1n!
+2. Add new... (Project)
+3. Import Git Repository (Coast-Salish-Plant-Nursery-App)
+4. Set Project name
+5. Framework Preset _Other_
+6. Root Directory _Server_
+7. Add the Environment variables (.env)
+8. Deploy
 
 ## 📱 Running the App (Frontend)
 
 Make sure the newest Expo version is installed:
 
+**Updating Expo Version**
+
 ```
 cd Client
 cd coast-salish-plant-nursery-app
 npx expo install expo@latest
+npx expo install --fix
+```
+
+**Start the app**
+
+```
+cd Client
+cd coast-salish-plant-nursery-app
+npm run start
+```
+
+> ⚠️ Note: The Expo NPM package is frequently updated. Keeping it up to date is strongly recommended.
+
+## 🔧 Running the Backend Locally
+
+**To start**
+
+```
+cd Server
+npm start
 ```

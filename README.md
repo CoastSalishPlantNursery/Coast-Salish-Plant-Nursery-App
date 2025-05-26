@@ -72,5 +72,10 @@ Returns the nursery dataset from the Google Spreadsheet.
 
 ## 📱 Running the App (Frontend)
 
-Make sure the newest Expo version is installed
-`npx expo install expo@latest`
+Make sure the newest Expo version is installed:
+
+```
+cd Client
+cd coast-salish-plant-nursery-app
+npx expo install expo@latest
+```

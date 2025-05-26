@@ -54,8 +54,9 @@ To run the backend locally or on Vercel, you need a Google API Key to access the
 
 ## 🧪 API Endpoint
 
-> GET /api
-> Returns the nursery dataset from the Google Spreadsheet.
+> _GET /api_
+
+Returns the nursery dataset from the Google Spreadsheet.
 
 **_Base URL (Vercel):_** https://your-vercel-deployment.vercel.app/api
 

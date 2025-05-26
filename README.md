@@ -54,12 +54,23 @@ To run the backend locally or on Vercel, you need a Google API Key to access the
 
 ## 🧪 API Endpoint
 
-> _GET /api_
+> **GET /api**
 
 Returns the nursery dataset from the Google Spreadsheet.
 
-**_Base URL (Vercel):_** https://your-vercel-deployment.vercel.app/api
+**_Base URL (Vercel):_** https://coast-salish-plant-nursery-plants-api.vercel.app/api
 
 ## 🌍 Deployment (Vercel)
 
-fjjf
+1. Add new... (Project)
+2. Import Git Repository (Coast-Salish-Plant-Nursery-App)
+3. Set Project name
+4. Framework Preset _Other_
+5. Root Directory _Server_
+6. Add the Environment variables (.env)
+7. Deploy
+
+## 📱 Running the App (Frontend)
+
+Make sure the newest Expo version is installed
+`npx expo install expo@latest`

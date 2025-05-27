@@ -106,3 +106,17 @@ npm run start
 cd Server
 npm start
 ```
+
+
+# Create a new Backend + App  
+
+## 🔧 Set up the Backend
+
+```
+npm init -y
+npm install express
+npm install dotenv
+npm install google-auth-library google-spreadsheet
+```
+
+

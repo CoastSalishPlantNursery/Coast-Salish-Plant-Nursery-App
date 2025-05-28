@@ -108,9 +108,16 @@ npm start
 ```
 
 
+
+
+
+
+
 # Create a new Backend + App  
 
 ## 🔧 Set up the Backend
+
+**Installation**
 
 ```
 npm init -y
@@ -119,4 +126,57 @@ npm install dotenv
 npm install google-auth-library google-spreadsheet
 ```
 
+**Environment Variables**
 
+1. Create a .env file
+2. Add the API Key and the Google Service Account Email Address
+
+```
+API_KEY="exampleKey"
+CLIENT_EMAIL="exampleEmail"
+```
+
+
+**Google Authentification**
+
+1. Create a Google Authentification File
+
+```
+const auth = require("google-auth-library");
+import dotenv from "dotenv";
+dotenv.config();
+
+const SCOPES = [
+    'https://www.googleapis.com/auth/spreadsheets',
+    'https://www.googleapis.com/auth/drive.file',
+  ];
+
+export async function createTokenAsync() {
+    const token = new JWT({
+    email: process.env.CLIENT_EMAIL,
+    key: process.env.API_KEY,
+    scopes: SCOPES,
+    })
+    return token;
+}
+```
+
+**Create a services file**
+
+```
+const { GoogleSpreadsheet, GoogleSpreadsheetWorksheet } = require("google-spreadsheet");
+const {createTokenAsync} = require("./GoogleAuth")
+
+async function fetchData() {
+    let plants = [];
+    const token = await createTokenAsync();
+    const spreadsheet = new GoogleSpreadsheet("1lr0Js5rcaaetcg6lEX37Yvf7F3NtTN2wfUm35AusReo", token);
+    await spreadsheet.loadInfo();
+    const sheet = await spreadsheet.sheetsByIndex[0];
+    await sheet.loadCells();
+    (await sheet.getRows()).map(row => plants.push(row.toObject()))
+    return plants;
+}
+
+module.exports = { fetchData };
+```

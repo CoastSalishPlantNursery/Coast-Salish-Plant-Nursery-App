@@ -1,5 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import Checkbutton from "./Checkbutton";
+import React = require("react");
 
 type CheckButtonGroupProps = {
   selections: string[];

@@ -1,4 +1,4 @@
-import React from "react";
+import React = require("react");
 import { StyleSheet, View, Text, Image } from "react-native";
 const errorIcon = require("../images/Error.png");
 

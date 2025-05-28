@@ -1,6 +1,6 @@
-import React from "react";
 import { SafeAreaView, StatusBar, Platform, Text, View } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
+import React = require("react");
 
 export enum TextStyle {
   regular = "regular",

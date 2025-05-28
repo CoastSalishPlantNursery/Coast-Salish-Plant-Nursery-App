@@ -1,6 +1,7 @@
-import React from "react";
+
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
+import React = require("react");
 
 type ListItemProps = {
   PlantName: string;

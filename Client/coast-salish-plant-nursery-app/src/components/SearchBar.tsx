@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
 import SearchBarDropDownItem from "./SearchBarDropDownItem";
+import React = require("react");
 type SearchBarProps = {
   text: string;
   value: string;

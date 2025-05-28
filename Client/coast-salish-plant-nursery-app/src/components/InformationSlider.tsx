@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   StyleSheet,
   Modal,
@@ -14,6 +14,7 @@ import BackButton from "./BackButton";
 import Heading, { HeadingSize, TextStyle } from "./Heading";
 import InformationItem from "./InformationItem";
 import { Plant } from "../../Types/Plant";
+import React = require("react");
 
 type InformationSilderProps = {
   isOpen: boolean;

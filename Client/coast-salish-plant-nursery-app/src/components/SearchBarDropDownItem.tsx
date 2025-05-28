@@ -1,4 +1,5 @@
-import React from "react";
+
+import React = require("react");
 import { TouchableWithoutFeedback, View, Text, StyleSheet } from "react-native";
 
 type SearchBarDropDownItemProps = {

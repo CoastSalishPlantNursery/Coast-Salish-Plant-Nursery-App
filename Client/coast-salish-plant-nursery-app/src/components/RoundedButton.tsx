@@ -1,6 +1,6 @@
-import React from "react";
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
+import React = require("react");
 
 type RoundedButtonProps = {
   text: string;

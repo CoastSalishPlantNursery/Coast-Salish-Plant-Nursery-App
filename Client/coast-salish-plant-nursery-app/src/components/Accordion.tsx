@@ -5,7 +5,7 @@ import {
   Text,
   Image,
 } from "react-native";
-import React, { useState } from "react";
+import * as React from "react";
 import { globalStyles } from "../styles/globalStyles";
 const arrowdown = require("../images/arrow-down_white.png");
 const arrowup = require("../images/arrow-up_white.png");

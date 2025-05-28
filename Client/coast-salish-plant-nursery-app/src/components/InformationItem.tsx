@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
+import React = require("react");
 
 type InformationItemProps = {
   heading: string;
